@@ -1,7 +1,6 @@
 
 from enum import Enum
 from sqlalchemy.orm import Mapped, mapped_column,relationship
-from booking_app.models.booking_model import Booking
 from src.core.models import Base
 from src.core.models.base import (
     str_30,

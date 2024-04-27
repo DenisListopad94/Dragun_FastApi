@@ -2,7 +2,6 @@ from uuid import UUID, uuid4
 from enum import Enum
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from auth.models.user_model import User
 from src.core.models import Base
 from src.core.models.base import (
     created_at,
