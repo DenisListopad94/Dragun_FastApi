@@ -1,10 +1,41 @@
-from pydantic import BaseModel, EmailStr, PositiveInt, Field
+from datetime import datetime
+from typing import Optional
 
-class User(BaseModel):
-    id: PositiveInt
-    age: int = Field(default=1, gt=0, lt=120)
-    first_name: str = "First name"
-    last_name: str = "Last name"
-    # username: str = "username"
-    email: EmailStr = "user@example.com"
-    photo: str | None
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+)
+
+from auth.models.user_model import UserRole
+
+
+class UserBaseSchema(BaseModel):
+    first_name: str
+    last_name: str
+    role: UserRole
+
+
+class UserCreateSchema(UserBaseSchema):
+    pass
+
+class UserReadSchema(UserBaseSchema):
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+    id: int
+
+class UserIdSchema(BaseModel):
+    id: int
+
+class UserUpdateSchema(BaseModel):
+    first_name: str
+    last_name: str
+    role: UserRole
+    id: int
+    # updated_at: Optional[datetime]
+
+class UserUpdatePartialSchema(BaseModel):
+    first_name: str | None = None
+    last_name: str | None = None
+    role: UserRole | None = None
+    id: int

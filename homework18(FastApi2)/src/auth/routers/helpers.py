@@ -1,9 +1,9 @@
 import random
 from typing import List
 
-from auth.schemas.user_schema import User
 
-def generate_users(num_users: int) -> List[User]:
+
+def generate_users(num_users: int) -> List:
     users = []
     for i in range(1, num_users + 1):
         user = {

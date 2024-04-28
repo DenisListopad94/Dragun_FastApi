@@ -21,4 +21,4 @@ class User(Base):
     role: Mapped[UserRole] = mapped_column(nullable=True)
     created_at: Mapped[created_at]
     updated_at: Mapped[updated_at]
-    booking: Mapped[list["Booking"]] = relationship("Booking", back_populates="user")
+    # booking: Mapped[list["Booking"]] = relationship("Booking", back_populates="user")
